@@ -1,24 +1,30 @@
 @import url('https://fonts.googleapis.com/css?family=DM+Sans:400,700&display=swap');
 
+:root {
+    --main-bg-color: black;
+    --main-text-color: 255, 255, 255;
+    --main-emphasis-color: #FFD046;
+}
+
 body {
-    background-color: black;
+    background-color: var(--main-bg-color);
     font-family: 'DM Sans', sans-serif;
 }
 
 a {
-    color: white;
+    color: rgb(var(--main-text-color));
     text-decoration: underline;
-    text-decoration-color: white;
+    text-decoration-color: rgb(var(--main-text-color));
 }
 
 a:visited {
-    color: white;
+    color: rgb(var(--main-text-color));
 }
 
 a:hover {
-    color: rgba(41, 41, 41, 0);
+    color: rgba(var(--main-text-color), 0);
     text-decoration: overline;
-    text-decoration-color: white;
+    text-decoration-color: rgb(var(--main-text-color));
 }
 
 .container {
@@ -34,19 +40,24 @@ a:hover {
 }
 
 .element {
+    color: rgb(var(--main-text-color));
     font-weight: bold;
-    color: aliceblue;
     font-size: 3.4em;
 }
 
+/* GRID POSITIONS */
 .container > #g { grid-row-start: 2; grid-column-start: 2; }
 .container > #l { grid-row-start: 2; grid-column-start: 3; }
 .container > #e { grid-row-start: 2; grid-column-start: 4; }
 .container > #n { grid-row-start: 2; grid-column-start: 5; }
-.container > .surname { grid-row-start: 2; grid-column-start: 6; color: grey;}
 .container > .ithub { grid-row-start: 3; grid-column-start: 2; }
 .container > .inkedin { grid-row-start: 3; grid-column-start: 3; }
 .container > .mail { grid-row-start: 3; grid-column-start: 4; }
+.container > .surname {grid-row-start: 2; grid-column-start: 6;}
+
+.container > .surname {
+    color: var(--main-emphasis-color);
+}
 
 .upright{
     writing-mode: vertical-lr;
@@ -54,7 +65,7 @@ a:hover {
     align-self: flex-start;
     font-size: 2em;
     display: none;
-    color: burlywood;
+    color: var(--main-emphasis-color);
     margin-top: -50px;
     z-index: -1;
 }
@@ -84,12 +95,12 @@ a:hover {
     from {
         margin-left: 25%;
         width: 125%;
-        color: black;
+        color: var(--main-bg-color);
     }
 
     to {
         margin-left: 0%;
         width: 100%;
-        color: burlywood;
+        color: var(--main-emphasis-color);
     }
 }
