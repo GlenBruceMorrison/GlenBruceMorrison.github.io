@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css?family=DM+Sans:400,700&display=swap');
+
+body {
+    background-color: black;
+    font-family: 'DM Sans', sans-serif;
+}
+
+a {
+    color: white;
+    text-decoration: underline;
+    text-decoration-color: white;
+}
+
+a:visited {
+    color: white;
+}
+
+a:hover {
+    color: rgba(41, 41, 41, 0);
+    text-decoration: overline;
+    text-decoration-color: white;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: auto 4em 4em 4em 4em 30em auto;
+    grid-template-rows: 30vh 20vh 50vh;
+    margin: auto;
+}
+
+.element {
+    align-self: flex-end;
+    margin: 0 auto;
+}
+
+.element {
+    font-weight: bold;
+    color: aliceblue;
+    font-size: 3.4em;
+}
+
+.container > #g { grid-row-start: 2; grid-column-start: 2; }
+.container > #l { grid-row-start: 2; grid-column-start: 3; }
+.container > #e { grid-row-start: 2; grid-column-start: 4; }
+.container > #n { grid-row-start: 2; grid-column-start: 5; }
+.container > .surname { grid-row-start: 2; grid-column-start: 6; color: grey;}
+.container > .ithub { grid-row-start: 3; grid-column-start: 2; }
+.container > .inkedin { grid-row-start: 3; grid-column-start: 3; }
+.container > .mail { grid-row-start: 3; grid-column-start: 4; }
+
+.upright{
+    writing-mode: vertical-lr;
+    text-orientation: unset;
+    align-self: flex-start;
+    font-size: 2em;
+    display: none;
+    color: burlywood;
+    margin-top: -50px;
+    z-index: -1;
+}
+
+#g:hover ~ .ithub {
+    display: flex;
+    animation-duration: 0.4s;
+    animation-name: slidein;
+    animation-fill-mode: forwards;
+}
+  
+#l:hover ~ .inkedin {
+    display: flex;
+    animation-duration: 0.4s;
+    animation-name: slidein;
+    animation-fill-mode: forwards;
+}
+
+#e:hover ~ .mail {
+    display: flex;
+    animation-duration: 0.4s;
+    animation-name: slidein;
+    animation-fill-mode: forwards;
+}
+
+@keyframes slidein {
+    from {
+        margin-left: 25%;
+        width: 125%;
+        color: black;
+    }
+
+    to {
+        margin-left: 0%;
+        width: 100%;
+        color: burlywood;
+    }
+}
