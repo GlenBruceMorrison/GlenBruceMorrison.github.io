@@ -1,118 +1,147 @@
 @import url('https://fonts.googleapis.com/css?family=DM+Sans:400,700&display=swap');
 
 :root {
-    --main-bg-color: black;
-    --main-text-color: 255, 255, 255;
-    --main-emphasis-color: #FFD046;
+    --transition-time: 1;
+    --bg-color-light: white;
+    --bg-color-dark: black;
 }
 
 body {
-    background-color: var(--main-bg-color);
     font-family: 'DM Sans', sans-serif;
-
-    transition: background-color 0.5s
+    color: white;
 }
 
-a {
-    color: rgb(var(--main-text-color));
-    text-decoration: underline;
-    text-decoration-color: rgb(var(--main-text-color));
+.bg-white {
+    background-color: var(--bg-color-light);
 }
 
-a:visited {
-    color: rgb(var(--main-text-color));
+.bg-black {
+    background-color: var(--bg-color-dark);
 }
 
-a:hover {
-    color: rgba(var(--main-text-color), 0);
-    text-decoration: overline;
-    text-decoration-color: rgb(var(--main-text-color));
+ul {
+    font-size: 1em;
+    margin-top: 100px;
+    list-style: none;
 }
 
-.container {
-    display: grid;
-    grid-template-columns: auto 4em 4em 4em 4em 30em auto;
-    grid-template-rows: 30vh 20vh 50vh;
-    margin: auto;
+li {
+    margin: 10px 0;
 }
 
-.element {
-    align-self: flex-end;
-    margin: 0 auto;
-}
-
-.element {
-    color: rgb(var(--main-text-color));
-    font-weight: bold;
-    font-size: 3.4em;
-}
-
-/* GRID POSITIONS */
-.container > #g { grid-row-start: 2; grid-column-start: 2; }
-.container > #l { grid-row-start: 2; grid-column-start: 3; }
-.container > #e { grid-row-start: 2; grid-column-start: 4; }
-.container > #n { grid-row-start: 2; grid-column-start: 5; }
-.container > .ithub { grid-row-start: 3; grid-column-start: 2; }
-.container > .inkedin { grid-row-start: 3; grid-column-start: 3; }
-.container > .mail { grid-row-start: 3; grid-column-start: 4; }
-.container > .surname {grid-row-start: 2; grid-column-start: 6;}
-
-.container > .surname {
-    color: var(--main-emphasis-color);
-}
-
-.upright{
-    writing-mode: vertical-lr;
-    text-orientation: unset;
-    align-self: flex-start;
-    font-size: 2em;
-    display: none;
-    color: var(--main-emphasis-color);
-    margin-top: -50px;
-    z-index: -1;
-}
-
-#g:hover ~ .ithub {
+.flex-lists {
     display: flex;
-    animation-duration: 0.4s;
-    animation-name: slidein;
+    justify-content: space-around;
+}
+
+.flex-list{
+
+}
+
+
+.flex-container-main {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+
+    margin-top: 15%;
+}
+
+.flex-container-first {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+}
+
+.flex-container-last {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+}
+
+.letter {
+    font-size: 6em;
+}
+
+#overlay {
+    position: relative;
+    margin-top: 10px;
+}
+
+#moon {
+    position: absolute;
+    border-radius: 100px;
+    width: 100px;
+    height: 100px;
+}
+
+#sun {
+    position: relative;
+    border-radius: 100px;
+    width: 100px;
+    height: 100px;
+}
+
+.sun-set {
+    clip-path: circle(20% at 0 100%);
+}
+
+.sun-risen {
+    clip-path: circle(130% at 0 100%);
+}
+
+.anim-sun-rise {
+    animation-timing-function: ease-in-out;
+    animation-name: sun-rise;
+    animation-duration: 1s;
     animation-fill-mode: forwards;
 }
-  
-#l:hover ~ .inkedin {
-    display: flex;
-    animation-duration: 0.4s;
-    animation-name: slidein;
-    animation-fill-mode: forwards;
+
+.anim-sun-set {
+    animation-timing-function: ease-in-out;
+    animation-name: sun-rise;
+    animation-duration: 1s;
+    animation-direction: reverse;
+    animation-fill-mode: backwards;
 }
 
-#e:hover ~ .mail {
-    display: flex;
-    animation-duration: 0.4s;
-    animation-name: slidein;
-    animation-fill-mode: forwards;
-}
-
-@keyframes slidein {
+@keyframes sun-rise {
     from {
-        margin-left: 25%;
-        width: 125%;
-        color: var(--main-bg-color);
+        clip-path: circle(20% at 0 100%);
     }
-
     to {
-        margin-left: 0%;
-        width: 100%;
-        color: var(--main-emphasis-color);
+        clip-path: circle(130.0% at 0 100%);
     }
 }
 
-#o {
-    height: 0.75em;
-    width: 0.75em;
-    background-color: var(--main-emphasis-color);
-    border-radius: 50%;
-    display: inline-block;
+#big-sun {
+    z-index: -100;
+    border-radius: 100px;
+    width: 100px;
+    height: 100px;
+    background-color: yellow;
+}
 
-    transition: background-color 0.5s
+.anim-big-sun-rise {
+    background: linear-gradient(-45deg, var(--bg-color-dark), var(--bg-color-dark), var(--bg-color-light), var(--bg-color-light));
+    background-size: 400% 400%;
+    animation: gradient 1s ease;
+    animation-direction: reverse;
+}
+
+.anim-big-sun-set {
+    background: linear-gradient(-45deg, var(--bg-color-dark), var(--bg-color-dark), var(--bg-color-light), var(--bg-color-light));
+    background-size: 400% 400%;
+    animation: gradient 1s ease;
+}
+
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    100% {
+        background-position: 100% 50%;
+    }
 }
