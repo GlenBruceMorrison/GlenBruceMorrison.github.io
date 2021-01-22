@@ -47,6 +47,7 @@ a:hover {
     font-size: 3.4em;
 }
 
+
 /* GRID POSITIONS */
 .container > #g { grid-row-start: 2; grid-column-start: 2; }
 .container > #l { grid-row-start: 2; grid-column-start: 3; }
@@ -107,12 +108,24 @@ a:hover {
     }
 }
 
-#o {
-    height: 0.75em;
-    width: 0.75em;
-    background-color: var(--main-emphasis-color);
-    border-radius: 50%;
-    display: inline-block;
+.anim-pop { animation: pop 0.5s 1; }
 
-    transition: background-color 0.5s
+@keyframes pop {
+    0% {
+        margin-bottom: 0px;
+    }
+
+    50% {
+        margin-bottom: 40px;
+    }
+
+    100% {
+        margin-bottom: 0px;
+    }
+}
+
+#o {
+    font-size: 47px;
+    margin-left: -10px;
+    margin-right: -10px;
 }
